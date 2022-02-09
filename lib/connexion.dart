@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_dill/constants.dart';
+import 'package:test_dill/drawer.dart';
 
 class Connexion extends StatelessWidget {
   const Connexion({Key? key}) : super(key: key);
@@ -8,59 +9,7 @@ class Connexion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: rouge_principal,
-              ),
-              child: Text('Navigation'),
-            ),
-            ListTile(
-              title: const Text('Programmation'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Mes Billets'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Portefeuille'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            Container(
-              height: 5,
-              width: 1,
-              color: rouge_principal,
-            ),
-            ListTile(
-              title: const Text('Profil'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Deconnexion'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
       appBar: AppBar(
         actions: [
           Container(
@@ -77,14 +26,6 @@ class Connexion extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Container(
-          //   width: double.infinity,
-          //   height: 150,
-          //   color: Colors.greenAccent,
-          //   child: Center(
-          //   child: Text('150'),
-          //   ),
-          // ),
           Container(
             //color: Colors.grey[200],
             padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
@@ -175,8 +116,6 @@ class Connexion extends StatelessWidget {
               ],
             ),
           ),
-
-
         ],
       ),
     );

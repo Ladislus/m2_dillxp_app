@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -8,164 +5,126 @@ import 'constants.dart';
 
 class HomePage extends StatelessWidget{
   @override
-  Widget build( context) {
-    return  Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("images/test.png"), fit: BoxFit.cover)
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Column(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
           children: [
-            Container(
-              width: double.infinity,
-              height: 150,
-              //color: Colors.greenAccent,
-              //child: Center(
-              //child: Text('150'),
-              //),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  'images/logo-cinemas-studio.svg',
-                  height: 135,
-                  width: 135,
-                  fit: BoxFit.cover,
-                ),
-              ],
-            ),
-            const Padding(padding: EdgeInsets.only(top: 25)),
-            Row(
-              children: [
-                const Padding(padding: EdgeInsets.only(right: 50)),
-                Transform.rotate(
-                  angle: 11*pi/6,
-                  child: Image.asset(
-                    'images/image_2.png',
-                    height: 80,
-                    width: 80,
-                    fit: BoxFit.cover,
-                  ),
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Transform.rotate(
-                  angle: pi/6,
-                  child: SvgPicture.asset(
-                    'images/movie-cinema-svgrepo-com.svg',
-                    height: 50,
-                    width: 50,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const Padding(padding: EdgeInsets.only(left: 50)),
-              ],
-            ),
-            Padding(padding: EdgeInsets.only(bottom: 60)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                    " Bienvenue dans l'Application des cinémas Studio !".toUpperCase(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    )
-                ),
-              ],
-            ),
-            Padding(padding: EdgeInsets.only(bottom: 25)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Réservez vos places sur mobile".toUpperCase(),
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold
-                  ),
-                )
-              ],
-            ),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                height: 100,
-                //color: Colors.greenAccent,
-                //child: Center(
-                //child: Text('100'),
-                //),
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: rouge_principal,
               ),
+              child: Text('Navigation'),
+            ),
+            ListTile(
+              title: const Text('Programmation'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Mes Billets'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Portefeuille'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
             ),
             Container(
               height: 5,
-              width: double.infinity,
+              width: 1,
               color: rouge_principal,
             ),
-            Padding(padding: EdgeInsets.all(10)),
+            ListTile(
+              title: const Text('Profil'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Deconnexion'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        actions: [
+          Container(
+            width: 80,
+            child: SvgPicture.asset(
+              'images/logo-cinemas-studio-appbar.svg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
+        ],
+        backgroundColor: rouge_appbar,
+      ),
+      body: Container(
+        padding: EdgeInsets.fromLTRB(25,45,0,0),
+        child: Column(
+          children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                OutlinedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context,
-                        "/login_form");
-                  },
-                  child: Text(
-                    'Connexion'.toUpperCase(),
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black
-                    ),
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    elevation: 5,
-                    padding: EdgeInsets.fromLTRB(40,20,40,20),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    backgroundColor: Colors.white,
-                    side: BorderSide(width: 2.5, color: rouge_principal),
-                  ),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Inscription'.toUpperCase(),
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black
-                    ),
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    elevation: 5,
-                    padding: EdgeInsets.fromLTRB(40,20,40,20),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    backgroundColor: Colors.white,
-                    side: BorderSide(width: 2.5, color: rouge_principal),
-                  ),
+                Container(
+                  child: Text("à voir Aujourd'hui".toUpperCase(),
+                  style: TextStyle(fontWeight:  FontWeight.bold)),
                 ),
               ],
             ),
+            Padding(padding: EdgeInsets.only(top: 10)),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  "Continuer sans Connexion".toUpperCase(),
-                  style: TextStyle(
-                      color: rouge_principal,
-                      fontWeight: FontWeight.w900
-                  ),
+                Container(
+                  height: 3,
+                  width: 65,
+                  color: rouge_principal,
                 ),
-                Padding(padding: EdgeInsets.fromLTRB(20, 40, 0, 0))
               ],
             ),
+            SizedBox(
+              width: 350,
+              height: 350,
+              child: ListView(
+                // This next line does the trick.
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Container(
+                    width: 160.0,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 160.0,
+                    color: Colors.blue,
+                  ),
+                  Container(
+                    width: 160.0,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    width: 160.0,
+                    color: Colors.yellow,
+                  ),
+                  Container(
+                    width: 160.0,
+                    color: Colors.orange,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

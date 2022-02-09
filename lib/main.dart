@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_dill/constants.dart';
 import 'package:test_dill/connexion.dart';
 import 'package:test_dill/home_page.dart';
+import 'package:test_dill/landing_page.dart';
 
 void main(){
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
       debugShowCheckedModeBanner: false,
       title: "Flutter Demo",
-      home: HomePage()
+      home: LandingPage()
     );
   }
 }
@@ -27,9 +28,11 @@ class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch (settings.name) {
       case "/":
-        return MaterialPageRoute(builder: (context) => HomePage());
+        return MaterialPageRoute(builder: (context) => LandingPage());
       case "/login_form":
         return MaterialPageRoute(builder: (context) => Connexion());
+      case "/movies":
+        return MaterialPageRoute(builder: (context) => HomePage());
       default:
         return MaterialPageRoute(
             builder: (context) =>Scaffold(
