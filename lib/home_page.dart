@@ -111,7 +111,10 @@ class HomePage extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context,
+                        "/login_form");
+                  },
                   child: Text(
                     'Connexion'.toUpperCase(),
                     style: TextStyle(
