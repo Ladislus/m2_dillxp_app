@@ -14,12 +14,14 @@ class Connexion extends StatelessWidget {
         actions: [
           Container(
             width: 80,
+            margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
             child: SvgPicture.asset(
               'images/logo-cinemas-studio-appbar.svg',
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
+
             ),
           ),
-          Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
+          //Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
         ],
         backgroundColor: rouge_appbar,
       ),
@@ -28,22 +30,19 @@ class Connexion extends StatelessWidget {
         children: [
           Container(
             //color: Colors.grey[200],
-            padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+            padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  child: Text(
-                    "Connexion",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24
-                    ),
+                const Text(
+                  "Connexion",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 35)),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: TextField(
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -51,52 +50,53 @@ class Connexion extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                           borderRadius: BorderRadius.circular(50.0),
                         ),
-                        contentPadding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                        hintText: 'PlaceHolder'.toUpperCase(),
+                        contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                        hintText: 'email'.toUpperCase(),
                         hintStyle: TextStyle(
                             color: placeholder_color,
                             fontWeight: FontWeight.bold
                         ),
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.account_circle_outlined,
                         )
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: TextField(
+                    obscureText: true,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: rouge_principal, width: 1.0),
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                           borderRadius: BorderRadius.circular(50.0),
                         ),
-                        contentPadding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                        hintText: 'PlaceHolder'.toUpperCase(),
+                        contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                        hintText: '**********'.toUpperCase(),
                         hintStyle: TextStyle(
                             color: placeholder_color,
                             fontWeight: FontWeight.bold
                         ),
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.password,
                         )
                     ),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 35)),
+                const Padding(padding: EdgeInsets.only(top: 35)),
                 OutlinedButton(
                   onPressed: () {},
                   child: Center(
                     child: Text(
                       'Connexion'.toUpperCase(),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black
                       ),
@@ -104,7 +104,7 @@ class Connexion extends StatelessWidget {
                   ),
                   style: OutlinedButton.styleFrom(
                     elevation: 5,
-                    padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
@@ -112,7 +112,7 @@ class Connexion extends StatelessWidget {
                     side: BorderSide(width: 2.5, color: rouge_principal),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 15)),
+                const Padding(padding: EdgeInsets.only(top: 15)),
               ],
             ),
           ),
