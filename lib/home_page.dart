@@ -5,6 +5,9 @@ import 'package:test_dill/drawer.dart';
 import 'constants.dart';
 
 class HomePage extends StatelessWidget{
+  final List<String> images = <String>['images/affiche_belle.jpg','images/violet_film.jpg','images/josee_film.jpg','images/maquia_film.jpg'];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,63 +55,31 @@ class HomePage extends StatelessWidget{
           SizedBox(height: 12),
           SizedBox(
             height: 400,
-            child: ListView(
+            child: ListView.separated(
+                itemCount : images.length,
+                itemBuilder: (BuildContext context, int index){
+                  return SizedBox(
+                    height: 400,
+                    child: Column(
+                        children: [
+                          Expanded(
+                              child: Image.asset(
+                                  images[index]
+                              )
+                          )
+                        ],
+                    ),
+                  );
+                },
+                separatorBuilder: (BuildContext context, int index) => const Padding(
+                    padding: EdgeInsets.only(right: 15)),
               scrollDirection: Axis.horizontal,
-              children: [
-                Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'images/affiche_belle.jpg',
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 12),
-                Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'images/violet_film.jpg',
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 12),
-                Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'images/josee_film.jpg',
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 12),
-                Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'images/maquia_film.jpg',
-                      ),
-                    ),
-                  ],
-                ),
-              ],
             ),
           ),
-
         ],
       ),
 
     );
   }
-
-
-  Widget buildCard() => Container(
-    width: 200,
-    height: 200,
-    color: Colors.red,
-  );
 
 }
