@@ -25,58 +25,111 @@ class HomePage extends StatelessWidget{
         ],
         backgroundColor: rouge_appbar,
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.fromLTRB(25,45,0,0),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      child: Text("à voir Aujourd'hui".toUpperCase(),
-                      style: TextStyle(fontWeight:  FontWeight.bold)),
-                    ),
-                  ],
-                ),
-                Padding(padding: EdgeInsets.only(top: 10)),
-                Row(
-                  children: [
-                    Container(
-                      height: 3,
-                      width: 65,
-                      color: rouge_principal,
-                    ),
-                  ],
-                ),
-              ],
+      body: ListView(
+        children: [ Column(
+          children: [
+            Container(
+              padding: EdgeInsets.fromLTRB(25,35,0,0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        child: Text("à voir Aujourd'hui".toUpperCase(),
+                        style: TextStyle(fontWeight:  FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 10)),
+                  Row(
+                    children: [
+                      Container(
+                        height: 3,
+                        width: 65,
+                        color: rouge_principal,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 12),
-          SizedBox(
-            height: 400,
-            child: ListView.separated(
+            SizedBox(height: 12),
+            SizedBox(
+              height: 400,
+              child: ListView.separated(
+                  itemCount : images.length,
+                  itemBuilder: (BuildContext context, int index){
+                    return SizedBox(
+                      height: 400,
+                      child: Column(
+                          children: [
+                            Expanded(
+                                child: Image.asset(
+                                    images[index]
+                                )
+                            )
+                          ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) => const Padding(
+                      padding: EdgeInsets.only(right: 15)),
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(25,35,0,0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        child: Text("Films à L'affiche".toUpperCase(),
+                            style: TextStyle(fontWeight:  FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 10)),
+                  Row(
+                    children: [
+                      Container(
+                        height: 3,
+                        width: 65,
+                        color: rouge_principal,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 12),
+            SizedBox(
+              height: 400,
+              child: ListView.separated(
                 itemCount : images.length,
                 itemBuilder: (BuildContext context, int index){
                   return SizedBox(
                     height: 400,
                     child: Column(
-                        children: [
-                          Expanded(
-                              child: Image.asset(
-                                  images[index]
-                              )
-                          )
-                        ],
+                      children: [
+                        Expanded(
+                            child: Image.asset(
+                                images[index]
+                            )
+                        )
+                      ],
                     ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) => const Padding(
                     padding: EdgeInsets.only(right: 15)),
-              scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.horizontal,
+              ),
             ),
-          ),
-        ],
+            Padding(padding: EdgeInsets.only(bottom: 45)),
+          ],
+        ),
+      ],
       ),
 
     );
