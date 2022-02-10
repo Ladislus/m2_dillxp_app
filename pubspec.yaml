@@ -66,7 +66,10 @@ flutter:
     - images/logo-cinemas-studio-appbar.svg
     - images/image_2.png
     - images/movie-cinema-svgrepo-com.svg
-    - images/affiche_film_belle.jpg
+    - images/affiche_belle.jpg
+    - images/violet_film.jpg
+    - images/josee_film.jpg
+    - images/maquia_film.jpg
     - images/test.png
 #    - images/a_dot_ham.jpeg
 
