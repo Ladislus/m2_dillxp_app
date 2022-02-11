@@ -229,12 +229,18 @@ class _RegisterPage extends State<RegisterPage>{
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                       child: TextFormField(
                         validator: (String? value) {
+                          const pattern = r'^((\+)33|0)[1-9](\d{2}){4}$';
+                          final regExp = RegExp(pattern);
+                          if(!regExp.hasMatch(value!)){
+                            return "Numéro de téléphone non conforme";
+                          }
                           return null;
                         },
                         maxLength: 10,
                         onSaved: (String? value) {
                           number_Phone = value.toString();
                         },
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           //border: InputBorder(borderSide: BorderSide(width: 1.0, color: Color(0xFFDFDFDF))),
                           suffixIcon: Icon(Icons.call),
@@ -263,6 +269,11 @@ class _RegisterPage extends State<RegisterPage>{
                         obscureText: true,
                         controller: _pass,
                         validator: (String? value) {
+                          String  pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+                          final RegExp regExp = RegExp(pattern);
+                          if(!regExp.hasMatch(value!)) {
+                            return "Le mot de passe doit contenir au moins 8 caractères dont minimum une majuscule, une minuscule, une chiffre, et un caractère spécial";
+                          }
                           return null;
                         },
                         onSaved: (String? value) {
@@ -286,6 +297,7 @@ class _RegisterPage extends State<RegisterPage>{
                             borderRadius: BorderRadius.circular(50.0),
                           ),
                           contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                          errorMaxLines: 3,
                         ),
                       ),
                     ),
@@ -296,7 +308,7 @@ class _RegisterPage extends State<RegisterPage>{
                         obscureText: true,
                         validator: (String? value) {
                           if (_pass.text != value) {
-                            return "Pas le même mdp";
+                            return "Le mot de passe n'est pas le même que le champs du dessus";
                           }
                           return null;
                         },
@@ -321,6 +333,7 @@ class _RegisterPage extends State<RegisterPage>{
                             borderRadius: BorderRadius.circular(50.0),
                           ),
                           contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                          errorMaxLines: 2,
                         ),
                       ),
                     ),
