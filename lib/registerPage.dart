@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'dart:developer' as developer;
 import 'package:intl/intl.dart';
 
-class TestPage extends StatefulWidget {
-  const TestPage({ Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({ Key? key}) : super(key: key);
   @override
-  _TestPage createState() => _TestPage();
+  _RegisterPage createState() => _RegisterPage();
 
 }
 
-class _TestPage extends State<TestPage>{
+class _RegisterPage extends State<RegisterPage>{
   String firstName = "";
   String lastName = "";
   String date = "";
