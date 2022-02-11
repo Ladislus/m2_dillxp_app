@@ -32,6 +32,7 @@ dependencies:
   flutter_svg: ^1.0.3
   hexcolor: ^2.0.6
   intl: ^0.17.0
+  email_validator: ^2.0.1
 
 
 

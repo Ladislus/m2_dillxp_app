@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as developer;
 import 'package:intl/intl.dart';
@@ -48,6 +49,9 @@ class _RegisterPage extends State<RegisterPage>{
               children: [
                 TextFormField(
                   validator: (String? value) {
+                    if(value == ""){
+                      return "Prénom non renseigné";
+                    }
                     return null;
                   },
                   onSaved: (String? value) {
@@ -71,6 +75,9 @@ class _RegisterPage extends State<RegisterPage>{
                 ),
                 TextFormField(
                   validator: (String? value) {
+                    if(value == ""){
+                      return "Nom non renseigné";
+                    }
                     return null;
                   },
                   onSaved: (String? value) {
@@ -99,19 +106,16 @@ class _RegisterPage extends State<RegisterPage>{
                     DateTime? picked = await showDatePicker(
                         context: context,
                         initialDate: new DateTime.now(),
-                        firstDate: new DateTime(2016),
-                        lastDate: new DateTime(2023)
+                        firstDate: new DateTime(1900),
+                        lastDate: new DateTime.now()
                     );
                     if (picked != null) {
                       date = DateFormat('dd-MM-yyyy').format(picked);
                       dateinput.text = date;
                     }
-                    else {
-                      print("Date is not selected");
-                    }
                   },
                   validator: (String? value) {
-                    if (value == null) {
+                    if (value == "") {
                       return "Date de naissance non sélectionné";
                     }
                     return null;
@@ -137,7 +141,10 @@ class _RegisterPage extends State<RegisterPage>{
                 ),
                 TextFormField(
                   validator: (String? value) {
-                    return null;
+                    if(EmailValidator.validate(value!)){
+                      return null;
+                    }
+                    return "Email non valide";
                   },
                   onSaved: (String? value) {
                     email = value.toString();
@@ -162,6 +169,7 @@ class _RegisterPage extends State<RegisterPage>{
                   validator: (String? value) {
                     return null;
                   },
+                  maxLength: 10,
                   onSaved: (String? value) {
                     number_Phone = value.toString();
                   },
