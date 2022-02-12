@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:test_dill/drawer.dart';
 
@@ -6,6 +7,8 @@ import 'constants.dart';
 
 class HomePage extends StatelessWidget{
   final List<String> images = <String>['images/affiche_belle.jpg','images/violet_film.jpg','images/josee_film.jpg','images/maquia_film.jpg'];
+  final List<String> nom_films = <String>['Belle','Violet Evergarden','Josée, le tigre ou les poissons','Maquia : When the promised flower bloom'];
+  final double note_Imdb = 8.9;
 
 
   @override
@@ -29,7 +32,7 @@ class HomePage extends StatelessWidget{
         children: [ Column(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(25,35,0,0),
+              padding: EdgeInsets.fromLTRB(25,25,0,0),
               child: Column(
                 children: [
                   Row(
@@ -59,16 +62,52 @@ class HomePage extends StatelessWidget{
               child: ListView.separated(
                   itemCount : images.length,
                   itemBuilder: (BuildContext context, int index){
-                    return SizedBox(
-                      height: 400,
-                      child: Column(
-                          children: [
-                            Expanded(
-                                child: Image.asset(
-                                    images[index]
-                                )
-                            )
-                          ],
+                    return Card(
+                      elevation: 3,
+                      child: SizedBox(
+                        height: 400,
+                        width: 250,
+                        child: Column(
+                            children: [
+                              Expanded(
+                                  child: Image.asset(
+                                      images[index]
+                                  )
+                              ),
+                              Padding(padding: EdgeInsets.only(bottom: 10)),
+                              Container(
+                                width: 250,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 175,
+                                      child: Text(nom_films[index],
+                                      overflow: TextOverflow.fade,
+                                      maxLines: 1,
+                                      softWrap: false,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                    ),
+                                    Spacer(),
+                                    Container(
+                                      child: Text(note_Imdb.toString(),
+                                      style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      )),
+                                    ),
+                                    Container(
+                                      child: Text("IMDB",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            backgroundColor: Colors.orange,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                        ),
                       ),
                     );
                   },
@@ -113,8 +152,12 @@ class HomePage extends StatelessWidget{
                     child: Column(
                       children: [
                         Expanded(
-                            child: Image.asset(
-                                images[index]
+                            child: Card(
+                              child: Image.asset(
+                                  images[index]
+                              ),
+
+                              elevation: 5,
                             )
                         )
                       ],
