@@ -1,12 +1,12 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_dill/constants.dart';
 import 'package:test_dill/connexion.dart';
 import 'package:test_dill/HomePage/home_page.dart';
 import 'package:test_dill/landing_page.dart';
+
 import 'package:test_dill/registerPage.dart';
+
+import 'package:test_dill/profil_page.dart';
+
 
 void main(){
   runApp(MyApp());
@@ -36,6 +36,9 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (context) => HomePage());
       case "/register":
         return MaterialPageRoute(builder: (context) => RegisterPage());
+      case "/profil":
+        return MaterialPageRoute(builder: (context) => ProfilPage());
+
       default:
         return MaterialPageRoute(
             builder: (context) =>Scaffold(
