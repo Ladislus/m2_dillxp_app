@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_dill/constants.dart';
 import 'package:test_dill/drawer.dart';
+import 'dart:developer' as developer;
 
-class Connexion extends StatelessWidget {
+class Connexion extends StatefulWidget {
   const Connexion({Key? key}) : super(key: key);
+
+  @override
+  _Connexion createState() => _Connexion();
+}
+
+class _Connexion extends State<Connexion>{
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -35,82 +44,95 @@ class Connexion extends StatelessWidget {
                 const Text(
                   "Connexion",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: rouge_principal, width: 1.0),
-                          borderRadius: BorderRadius.circular(50.0),
+                Form(
+                  key : _formKey,
+                  child : Column(
+                    children: [
+                      Padding(
+
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: rouge_principal, width: 1.0),
+                                borderRadius: BorderRadius.circular(50.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                borderRadius: BorderRadius.circular(50.0),
+                              ),
+                              contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                              hintText: 'email'.toUpperCase(),
+                              hintStyle: TextStyle(
+                                  color: placeholder_color,
+                                  fontWeight: FontWeight.bold
+                              ),
+                              suffixIcon: const Icon(
+                                Icons.account_circle_outlined,
+                              )
+                          ),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                        contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-                        hintText: 'email'.toUpperCase(),
-                        hintStyle: TextStyle(
-                            color: placeholder_color,
-                            fontWeight: FontWeight.bold
-                        ),
-                        suffixIcon: const Icon(
-                          Icons.account_circle_outlined,
-                        )
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: rouge_principal, width: 1.0),
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                        contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-                        hintText: '**********'.toUpperCase(),
-                        hintStyle: TextStyle(
-                            color: placeholder_color,
-                            fontWeight: FontWeight.bold
-                        ),
-                        suffixIcon: const Icon(
-                          Icons.password,
-                        )
-                    ),
-                  ),
-                ),
-                const Padding(padding: EdgeInsets.only(top: 35)),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Center(
-                    child: Text(
-                      'Connexion'.toUpperCase(),
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black
                       ),
-                    ),
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    elevation: 5,
-                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    backgroundColor: Colors.white,
-                    side: BorderSide(width: 2.5, color: rouge_principal),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        child: TextFormField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: rouge_principal, width: 1.0),
+                                borderRadius: BorderRadius.circular(50.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                borderRadius: BorderRadius.circular(50.0),
+                              ),
+                              contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                              hintText: '**********'.toUpperCase(),
+                              hintStyle: TextStyle(
+                                  color: placeholder_color,
+                                  fontWeight: FontWeight.bold
+                              ),
+                              suffixIcon: const Icon(
+                                Icons.password,
+                              )
+                          ),
+                        ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 35)),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            developer.log("Je suis connecté");
+                            Navigator.pushNamed(context, "/movies");
+                          }
+                        },
+                        child: Center(
+                          child: Text(
+                            'Connexion'.toUpperCase(),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black
+                            ),
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          elevation: 5,
+                          primary: Colors.white,
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          side: BorderSide(width: 2.5, color: rouge_principal),
+                        ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 15)),
+                    ],
                   ),
                 ),
-                const Padding(padding: EdgeInsets.only(top: 15)),
               ],
             ),
           ),
@@ -118,4 +140,5 @@ class Connexion extends StatelessWidget {
       ),
     );
   }
+
 }
