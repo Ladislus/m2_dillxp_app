@@ -25,6 +25,7 @@ class CustomDrawer extends StatelessWidget{
           ListTile(
             title: const Text('Mes Billets'),
             onTap: () {
+              Navigator.pushNamed(context, "/mesBillets");
               // Update the state of the app.
               // ...
             },

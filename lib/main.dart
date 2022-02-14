@@ -6,6 +6,7 @@ import 'package:test_dill/constants.dart';
 import 'package:test_dill/connexion.dart';
 import 'package:test_dill/home_page.dart';
 import 'package:test_dill/landing_page.dart';
+import 'package:test_dill/mesBilletsPage.dart';
 import 'package:test_dill/registerPage.dart';
 
 void main(){
@@ -32,6 +33,8 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (context) => LandingPage());
       case "/login_form":
         return MaterialPageRoute(builder: (context) => Connexion());
+      case "/mesBillets":
+        return MaterialPageRoute(builder: (context) => mesBilletsPage());
       case "/movies":
         return MaterialPageRoute(builder: (context) => HomePage());
       case "/register":
