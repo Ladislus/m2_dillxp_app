@@ -16,11 +16,11 @@ class LandingPage extends StatelessWidget{
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Column(
+        body: ListView(
           children: [
             Container(
               width: double.infinity,
-              height: 150,
+              height: 90,
               //color: Colors.greenAccent,
               //child: Center(
               //child: Text('150'),
@@ -91,15 +91,19 @@ class LandingPage extends StatelessWidget{
                 )
               ],
             ),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                height: 100,
-                //color: Colors.greenAccent,
-                //child: Center(
-                //child: Text('100'),
-                //),
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    height: 100,
+                    //color: Colors.greenAccent,
+                    //child: Center(
+                    //child: Text('100'),
+                    //),
+                  ),
+                ),
+              ],
             ),
             Container(
               height: 5,

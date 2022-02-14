@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_dill/constants.dart';
@@ -14,6 +15,7 @@ class Connexion extends StatefulWidget {
 class _Connexion extends State<Connexion>{
 
   final _formKey = GlobalKey<FormState>();
+  String email = "";
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +58,15 @@ class _Connexion extends State<Connexion>{
 
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                         child: TextFormField(
+                          validator: (String? value) {
+                            if(EmailValidator.validate(value!)){
+                              return null;
+                            }
+                            return "Email non valide";
+                          },
+                          onSaved: (String? value) {
+                            email = value.toString();
+                          },
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: rouge_principal, width: 1.0),
