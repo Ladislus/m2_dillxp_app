@@ -18,10 +18,8 @@ class Connexion extends StatelessWidget {
             child: SvgPicture.asset(
               'images/logo-cinemas-studio-appbar.svg',
               fit: BoxFit.contain,
-
             ),
           ),
-          //Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
         ],
         backgroundColor: rouge_appbar,
       ),

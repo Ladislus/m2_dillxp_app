@@ -21,12 +21,12 @@ class HomePage extends StatelessWidget{
         actions: [
           Container(
             width: 80,
+            margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
             child: SvgPicture.asset(
               'images/logo-cinemas-studio-appbar.svg',
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
-          Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
         ],
         backgroundColor: rouge_appbar,
       ),

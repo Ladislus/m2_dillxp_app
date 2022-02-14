@@ -18,53 +18,58 @@ class Carousel extends StatelessWidget{
           itemCount : images.length,
           itemBuilder: (BuildContext context, int index){
             return Card(
-              child: SizedBox(
-                height: 400,
-                width: 250,
-                child: Column(
-                  children: [
-                    Container(
-                      child: Expanded(
-                          child: Image.asset(
-                              images[index]
-                          )
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(0,10,0,10),
-                      width: 250,
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 175,
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(nom_films[index],
-                                overflow: TextOverflow.fade,
-                                maxLines: 1,
-                                softWrap: false,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                )),
-                          ),
-                          Spacer(),
-                          Container(
-                            child: Text(notes_Imdb[index].toString(),
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                )),
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(5,0,5,0),
+              child: InkWell(
+                onTap: () {
+                  print(nom_films[index]);
+                },
+                child: SizedBox(
+                  height: 400,
+                  width: 250,
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Expanded(
                             child: Image.asset(
-                              'images/logo_imdb.png',
-                              height: 30,
-                              width: 30,
-                            ),
-                          ),
-                        ],
+                                images[index]
+                            )
+                        ),
                       ),
-                    ),
-                  ],
+                      Container(
+                        padding: EdgeInsets.fromLTRB(0,10,0,10),
+                        width: 250,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 175,
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(nom_films[index],
+                                  overflow: TextOverflow.fade,
+                                  maxLines: 1,
+                                  softWrap: false,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ),
+                            Spacer(),
+                            Container(
+                              child: Text(notes_Imdb[index].toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(5,0,5,0),
+                              child: Image.asset(
+                                'images/logo_imdb.png',
+                                height: 30,
+                                width: 30,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
