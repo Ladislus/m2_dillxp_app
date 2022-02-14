@@ -9,12 +9,7 @@ class CustomDrawer extends StatelessWidget{
       child: ListView(
         // Important: Remove any padding from the ListView.
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: rouge_principal,
-            ),
-            child: Text('Navigation'),
-          ),
+
           ListTile(
             title: const Text('Programmation'),
             onTap: () {
@@ -32,8 +27,6 @@ class CustomDrawer extends StatelessWidget{
           ListTile(
             title: const Text('Portefeuille'),
             onTap: () {
-              // Update the state of the app.
-              // ...
             },
           ),
           Container(
@@ -44,6 +37,8 @@ class CustomDrawer extends StatelessWidget{
           ListTile(
             title: const Text('Profil'),
             onTap: () {
+              Navigator.pushNamed(context, "/profil");
+
               // Update the state of the app.
               // ...
             },

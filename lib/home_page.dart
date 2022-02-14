@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:test_dill/drawer.dart';
 
 import 'constants.dart';
 
@@ -7,59 +8,7 @@ class HomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: rouge_principal,
-              ),
-              child: Text('Navigation'),
-            ),
-            ListTile(
-              title: const Text('Programmation'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Mes Billets'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Portefeuille'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            Container(
-              height: 5,
-              width: 1,
-              color: rouge_principal,
-            ),
-            ListTile(
-              title: const Text('Profil'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Deconnexion'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
       appBar: AppBar(
         actions: [
           Container(
