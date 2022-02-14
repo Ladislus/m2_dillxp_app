@@ -133,7 +133,10 @@ class LandingPage extends StatelessWidget{
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                      Navigator.pushNamed(context,
+                          "/register");
+                    },
                   child: Text(
                     'Inscription'.toUpperCase(),
                     style: TextStyle(
