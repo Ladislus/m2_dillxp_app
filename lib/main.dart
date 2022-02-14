@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_dill/constants.dart';
 import 'package:test_dill/connexion.dart';
-import 'package:test_dill/home_page.dart';
+import 'package:test_dill/HomePage/home_page.dart';
 import 'package:test_dill/landing_page.dart';
 
 void main(){
