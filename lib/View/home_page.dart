@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:test_dill/HomePage/carousel.dart';
-import 'package:test_dill/drawer.dart';
-import 'package:test_dill/HomePage/separator_homePage.dart';
+import 'package:test_dill/Ressources/carousel.dart';
+import 'package:test_dill/Ressources/drawer.dart';
+import 'package:test_dill/Ressources/separator_homePage.dart';
 
-import '../constants.dart';
+import '../Ressources/constants.dart';
 
 class HomePage extends StatelessWidget{
   final List<String> images = <String>['images/affiche_belle.jpg','images/violet_film.jpg','images/josee_film.jpg','images/maquia_film.jpg'];

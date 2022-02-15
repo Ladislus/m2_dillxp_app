@@ -48,6 +48,7 @@ class CustomDrawer extends StatelessWidget{
             onTap: () {
               // Update the state of the app.
               // ...
+              Navigator.pushNamed(context, "/");
             },
           ),
         ],

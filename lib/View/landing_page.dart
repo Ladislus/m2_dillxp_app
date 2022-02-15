@@ -3,13 +3,14 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:test_dill/HomePage/home_page.dart';
+import 'package:test_dill/View/home_page.dart';
 
-import 'constants.dart';
+import '../Ressources/constants.dart';
 
 class LandingPage extends StatelessWidget{
   @override
   Widget build( context) {
+
     return  Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -183,6 +184,7 @@ class LandingPage extends StatelessWidget{
         ),
       ),
     );
+
   }
 
 }

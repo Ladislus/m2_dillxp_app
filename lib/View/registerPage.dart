@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:developer' as developer;
 import 'package:intl/intl.dart';
-import 'package:test_dill/constants.dart';
-import 'package:test_dill/drawer.dart';
+import 'package:test_dill/Ressources/constants.dart';
+import 'package:test_dill/Ressources/drawer.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({ Key? key}) : super(key: key);

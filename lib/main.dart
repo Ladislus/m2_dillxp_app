@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:test_dill/connexion.dart';
-import 'package:test_dill/HomePage/home_page.dart';
-import 'package:test_dill/landing_page.dart';
+import 'package:test_dill/View/connexion.dart';
+import 'package:test_dill/View/home_page.dart';
+import 'package:test_dill/View/landing_page.dart';
 
-import 'package:test_dill/registerPage.dart';
+import 'package:test_dill/View/registerPage.dart';
 
-import 'package:test_dill/profil_page.dart';
+import 'package:test_dill/View/profil_page.dart';
 
 
 void main(){
