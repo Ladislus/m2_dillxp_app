@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:test_dill/HomePage/home_page.dart';
 
 import 'constants.dart';
 
@@ -163,12 +164,17 @@ class LandingPage extends StatelessWidget{
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  "Continuer sans Connexion".toUpperCase(),
-                  style: TextStyle(
-                      color: rouge_principal,
-                      fontWeight: FontWeight.w900
-                  ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/movies");
+                  },
+                  child: Text(
+                    "Continuer sans Connexion".toUpperCase(),
+                    style: TextStyle(
+                        color: rouge_principal,
+                        fontWeight: FontWeight.w900
+                    ),
+                  )
                 ),
                 Padding(padding: EdgeInsets.fromLTRB(20, 40, 0, 0))
               ],
