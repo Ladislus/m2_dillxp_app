@@ -38,19 +38,7 @@ class _RegisterPage extends State<RegisterPage>{
 
     return Scaffold(
       //drawer: CustomDrawer(),
-      appBar: AppBar(
-        actions: [
-          Container(
-            width: 80,
-            child: SvgPicture.asset('images/logo-cinemas-studio-appbar.svg',
-            fit: BoxFit.cover,
-            ),
-          ),
-          Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
-        ],
-        //title: Text("Les textFormField c super youpi"),
-        backgroundColor: rouge_appbar,
-      ),
+      appBar: appbar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children:  [

@@ -93,19 +93,7 @@ class _ProfilePageState extends State<ProfilPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: CustomDrawer(),
-        appBar: AppBar(
-          actions: [
-            Container(
-              width: 80,
-              child: SvgPicture.asset(
-                'images/logo-cinemas-studio-appbar.svg',
-                fit: BoxFit.cover,
-              ),
-            ),
-            Padding(padding: EdgeInsets.fromLTRB(0, 0, 20, 10))
-          ],
-          backgroundColor: rouge_appbar,
-        ),
+        appBar: appbar(),
         body: SingleChildScrollView(
           child: Column(
             children: [

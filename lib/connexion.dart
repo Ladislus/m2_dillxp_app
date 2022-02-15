@@ -21,19 +21,7 @@ class _Connexion extends State<Connexion>{
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: CustomDrawer(),
-      appBar: AppBar(
-        actions: [
-          Container(
-            width: 80,
-            margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-            child: SvgPicture.asset(
-              'images/logo-cinemas-studio-appbar.svg',
-              fit: BoxFit.contain,
-            ),
-          ),
-        ],
-        backgroundColor: rouge_appbar,
-      ),
+      appBar: appbar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
