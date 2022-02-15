@@ -45,7 +45,7 @@ class mesBilletsPage extends StatelessWidget{
               ),
             ],
           ),
-          Container(
+          /*Container(
               padding: const EdgeInsets.all(10),
               child: Align(
                   alignment: Alignment.topRight,
@@ -57,6 +57,16 @@ class mesBilletsPage extends StatelessWidget{
                     ),
                   )
               )
+          ),*/
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: const BoxDecoration(
+              color: Color(0xFFe20613),
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+            ),
+            height: 3,
+            width: 65,
           ),
           Container(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -104,7 +114,7 @@ class mesBilletsPage extends StatelessWidget{
                             return Container(
                               width: 200,
                               child: Card(
-                                color: Colors.white54,
+                                color: Colors.white70,
 
                                 child :Column(
                                   children: [
@@ -143,26 +153,78 @@ class mesBilletsPage extends StatelessWidget{
                           itemCount: qrcode.length),
                     ),
                     Container(
-                      padding: const EdgeInsets.all(10),
-                      child: Align(
-                          alignment: Alignment.topLeft,
-                          child: FractionallySizedBox(
-                            widthFactor: 0.25,
-                            child: Divider(
-                              color: rouge_appbar,
-                              thickness: 10,
-                            ),
-                          )
+                      padding: EdgeInsets.all(100),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFe20613),
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
                       ),
+                      height: 3,
+                      width: 65,
                     ),
                   ],
                 ),
               ),
               Container(
-
-              )
-            ]
-          )
+                child: Column(
+                  children: [
+                    Text(
+                      "Anciens billets",
+                      style: TextStyle(
+                        color: rouge_appbar,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 200,
+                      child: ListView.separated(
+                        itemBuilder: (BuildContext context, int index){
+                        return Container(
+                          width: 200,
+                          child: Card(
+                            color: Colors.white70,
+                            child :Column(
+                              children: [
+                                SizedBox(
+                                  height: 160,
+                                  child: Column(
+                                    children: [
+                                      Expanded(child: qrcode[index],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const Text(
+                                  'Séance : [date][format : dd/mm/yyyy] à [heure]',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const Text(
+                                  "Film : [nom Film]",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                      overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                        },
+                      separatorBuilder: (BuildContext context, int index) => const Padding(
+                        padding: EdgeInsets.only(right: 15)),
+                      scrollDirection: Axis.horizontal ,
+                      itemCount: qrcode.length
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
