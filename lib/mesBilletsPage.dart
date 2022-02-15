@@ -5,9 +5,18 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 import 'package:test_dill/constants.dart';
 
-class mesBilletsPage extends StatelessWidget{
+class mesBilletsPage extends StatefulWidget{
 
+
+  mesBilletsPage({Key? key}) : super(key: key);
+
+  @override
+  State<mesBilletsPage> createState() => _mesBilletsPageState();
+}
+
+class _mesBilletsPageState extends State<mesBilletsPage> {
   List<QrImage> qrcode = <QrImage>[QrImage(data: "1"),QrImage(data: "2"),QrImage(data: "3"),QrImage(data: "4")];
+
   @override
   Widget build(BuildContext context) {
 
@@ -23,7 +32,7 @@ class mesBilletsPage extends StatelessWidget{
           fit: BoxFit.contain,
           ),
         ),
-        Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
+        const Padding(padding: EdgeInsets.fromLTRB(0,0, 20,10))
       ],
       backgroundColor: rouge_appbar,
       ),
@@ -59,29 +68,24 @@ class mesBilletsPage extends StatelessWidget{
                   )
               )
           ),*/
-          Row(
-            children: [
-              Align(
-                alignment: Alignment.topRight,
-                child :Container(
-                  padding: EdgeInsets.all(20),
-                  decoration:  BoxDecoration(
-                    color: rouge_principal,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  ),
-                  height: 3,
-                  width: 65,
-                ),
-              )
-
-            ],
+          Align(
+            alignment: Alignment.topRight,
+            child :Container(
+              margin: const EdgeInsets.fromLTRB(0,10,20,10),
+              decoration:  BoxDecoration(
+                color: rouge_principal,
+                shape: BoxShape.rectangle,
+                borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              ),
+              height: 3,
+              width: 65,
+            ),
           ),
           Container(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: TextField(
                 decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.search),
                   labelText: "Rechercher mon billet",
                   labelStyle: TextStyle(
                     color: placeholder_color,
@@ -107,21 +111,29 @@ class mesBilletsPage extends StatelessWidget{
               Container(
                 child: Column(
                   children: [
-                    Text(
-                      "Billets actifs",
-                      style: TextStyle(
-                        color: rouge_appbar,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 32,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding : const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                          child: Text(
+                            "Billets actifs",
+                            style: TextStyle(
+                              color: rouge_appbar,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 200,
-
                       child: ListView.separated(
                           itemBuilder: (BuildContext context, int index){
                             return Container(
                               width: 200,
+                              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                               child: Card(
                                 color: Colors.white70,
 
@@ -136,20 +148,40 @@ class mesBilletsPage extends StatelessWidget{
                                             ],
                                             ),
                                     ),
-                                    const Text(
-                                      'Séance : [date][format : dd/mm/yyyy] à [heure]',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        //overflow: TextOverflow.fade,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                         Flexible(
+                                           child: Container(
+                                             padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                             child: const Text(
+                                              'Séance : [date][format : dd/mm/yyyy] à [heure]',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                //overflow: TextOverflow.fade,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                           ),
+                                         ),
+                                      ],
                                     ),
-                                    const Text(
-                                      "Film : [nom Film]",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Flexible(
+                                         child :Container(
+                                            padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            child:  const Text(
+                                              "Film : [nom Film] a a a a a a a a  a a  ",
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     )
                                   ],
                                 ),
@@ -161,15 +193,18 @@ class mesBilletsPage extends StatelessWidget{
                          scrollDirection: Axis.horizontal ,
                           itemCount: qrcode.length),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(100),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFe20613),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child :Container(
+                        margin: const EdgeInsets.fromLTRB(20,10,0,10),
+                        decoration:  BoxDecoration(
+                          color: rouge_principal,
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        ),
+                        height: 3,
+                        width: 65,
                       ),
-                      height: 3,
-                      width: 65,
                     ),
                   ],
                 ),
@@ -177,13 +212,21 @@ class mesBilletsPage extends StatelessWidget{
               Container(
                 child: Column(
                   children: [
-                    Text(
-                      "Anciens billets",
-                      style: TextStyle(
-                        color: rouge_appbar,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 32,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding : const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                          child: Text(
+                            "Anciens billets",
+                            style: TextStyle(
+                              color: rouge_appbar,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 200,
@@ -191,6 +234,7 @@ class mesBilletsPage extends StatelessWidget{
                         itemBuilder: (BuildContext context, int index){
                         return Container(
                           width: 200,
+                          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                           child: Card(
                             color: Colors.white70,
                             child :Column(
@@ -204,20 +248,41 @@ class mesBilletsPage extends StatelessWidget{
                                     ],
                                   ),
                                 ),
-                                const Text(
-                                  'Séance : [date][format : dd/mm/yyyy] à [heure]',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Container(
+                                        padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                        child: const Text(
+                                          'Séance : [date][format : dd/mm/yyyy] à [heure]',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            //overflow: TextOverflow.fade,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                const Text(
-                                  "Film : [nom Film]",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                      overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child :Container(
+                                        padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                        child:  const Text(
+                                          "Film : [nom Film] a a a a a a a a  a a  ",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
                               ],
                             ),
                           ),
@@ -238,6 +303,4 @@ class mesBilletsPage extends StatelessWidget{
       ),
     );
   }
-
-
 }
