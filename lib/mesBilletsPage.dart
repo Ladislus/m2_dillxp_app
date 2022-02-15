@@ -28,6 +28,7 @@ class mesBilletsPage extends StatelessWidget{
       backgroundColor: rouge_appbar,
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -58,15 +59,23 @@ class mesBilletsPage extends StatelessWidget{
                   )
               )
           ),*/
-          Container(
-            padding: EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-              color: Color(0xFFe20613),
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-            ),
-            height: 3,
-            width: 65,
+          Row(
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child :Container(
+                  padding: EdgeInsets.all(20),
+                  decoration:  BoxDecoration(
+                    color: rouge_principal,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  ),
+                  height: 3,
+                  width: 65,
+                ),
+              )
+
+            ],
           ),
           Container(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
