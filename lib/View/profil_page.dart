@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_dill/constants.dart';
-import 'package:test_dill/drawer.dart';
+import 'package:test_dill/Ressources/constants.dart';
+import 'package:test_dill/Ressources/drawer.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ProfilPage extends StatefulWidget {

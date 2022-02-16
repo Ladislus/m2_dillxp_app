@@ -1,8 +1,8 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_dill/constants.dart';
-import 'package:test_dill/drawer.dart';
+import 'package:test_dill/Ressources/constants.dart';
+import 'package:test_dill/Ressources/drawer.dart';
 import 'dart:developer' as developer;
 
 class Connexion extends StatefulWidget {
