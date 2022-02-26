@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:test_dill/View/connexion.dart';
 import 'package:test_dill/View/home_page.dart';
 import 'package:test_dill/View/landing_page.dart';
@@ -6,6 +7,14 @@ import 'package:test_dill/View/landing_page.dart';
 import 'package:test_dill/View/registerPage.dart';
 
 import 'package:test_dill/View/profil_page.dart';
+
+
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_dill/Ressources/constants.dart';
+
+
+
+import 'package:test_dill/View/mesBilletsPage.dart';
 
 
 void main(){
@@ -32,6 +41,8 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (context) => LandingPage());
       case "/login_form":
         return MaterialPageRoute(builder: (context) => Connexion());
+      case "/mesBillets":
+        return MaterialPageRoute(builder: (context) => mesBilletsPage());
       case "/movies":
         return MaterialPageRoute(builder: (context) => HomePage());
       case "/register":
