@@ -16,6 +16,8 @@ import 'package:test_dill/Ressources/constants.dart';
 
 import 'package:test_dill/View/mesBilletsPage.dart';
 
+import 'View/descriptionFilm.dart';
+
 
 void main(){
   runApp(MyApp());
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/",
+      initialRoute: "/descriptionPage",
       onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
       debugShowCheckedModeBanner: false,
       title: "Flutter Demo",
@@ -39,6 +41,8 @@ class RouteGenerator{
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(builder: (context) => LandingPage());
+      case "/descriptionPage":
+        return MaterialPageRoute(builder: (context) => DescriptionFilm());
       case "/login_form":
         return MaterialPageRoute(builder: (context) => Connexion());
       case "/mesBillets":
