@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_dill/Ressources/boutonSeance.dart';
 import 'package:test_dill/Ressources/comment.dart';
 import 'package:test_dill/Ressources/constants.dart';
 import 'package:test_dill/Ressources/drawer.dart';
@@ -11,6 +12,9 @@ import 'package:test_dill/Ressources/separator_homePage.dart';
 
 class DescriptionFilm extends StatelessWidget{
 
+  final List<String> jours = <String>['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  final List<double> nb_seance = [2,10,3,7,5,4,8] ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,35 +23,34 @@ class DescriptionFilm extends StatelessWidget{
       body: ListView(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: Image.asset("images/josee_film.jpg"),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  padding: EdgeInsets.only(left: 25 ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Text(
-                          "Josée, le Tigre et les Poissons",
-                          style: TextStyle(color: rouge_appbar, fontSize: 34, fontWeight: FontWeight.bold, fontFamily: ""),
-                        ),
+              Container(
+                padding: EdgeInsets.only(left: 15 ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Josée, le Tigre et les Poissons",
+                        style: TextStyle(color: rouge_appbar, fontSize: 34, fontWeight: FontWeight.bold, fontFamily: ""),
                       ),
-                      Container(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Text("DE Kotaro Tamura ".toUpperCase()),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Text("Avec Acteur 1, Acteur 2 et Acteur 3".toUpperCase()),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: 15, bottom: 15),
-                        child: RichText(text: TextSpan(
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Text("DE Kotaro Tamura ".toUpperCase()),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Text("Avec Acteur 1, Acteur 2 et Acteur 3".toUpperCase()),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 15, bottom: 15),
+                      child: RichText(text: TextSpan(
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black,
@@ -66,11 +69,10 @@ class DescriptionFilm extends StatelessWidget{
                             TextSpan(text: "Public : ", style: TextStyle(fontWeight: FontWeight.bold) ),
                             TextSpan(text: "Tout Public"),
                           ]
-                        )
-                        ),
+                      )
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               Container(
@@ -109,13 +111,34 @@ class DescriptionFilm extends StatelessWidget{
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  padding: EdgeInsets.only(left: 15 ),
-                  child: Text(
-                    "Séances".toUpperCase(),
-                    style: TextStyle(color: rouge_appbar, fontSize: 34, fontWeight: FontWeight.bold, fontFamily: ""),
+              Container(
+                padding: EdgeInsets.only(left: 15 ),
+                child: Text(
+                  "Séances".toUpperCase(),
+                  style: TextStyle(color: rouge_appbar, fontSize: 34, fontWeight: FontWeight.bold, fontFamily: ""),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(0, 15, 15, 15),
+                child: SizedBox(
+                  height: 400,
+                  child: ListView.separated(
+                    itemCount : 7,
+                    itemBuilder: (BuildContext context, int index){
+                      return Column(
+                        children: [
+                          Text(jours[index]),
+                          for (var i = 0; i < nb_seance[index]; i++)
+                            BoutonSeance(false),
+                        ],
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) =>
+                    const VerticalDivider(
+                      width: 5,
+                      color: Colors.white,
+                    ),
+                    scrollDirection: Axis.horizontal,
                   ),
                 ),
               ),
@@ -141,14 +164,11 @@ class DescriptionFilm extends StatelessWidget{
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  padding: EdgeInsets.only(left: 15 ),
-                  child: Text(
-                    "Avis".toUpperCase(),
-                    style: TextStyle(color: rouge_appbar, fontSize: 34, fontWeight: FontWeight.bold, fontFamily: ""),
-                  ),
+              Container(
+                padding: EdgeInsets.only(left: 15 ),
+                child: Text(
+                  "Avis".toUpperCase(),
+                  style: TextStyle(color: rouge_appbar, fontSize: 34, fontWeight: FontWeight.bold, fontFamily: ""),
                 ),
               ),
               Comment(15,10),
