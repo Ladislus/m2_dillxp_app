@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/descriptionPage",
+      initialRoute: "/",
       onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
       debugShowCheckedModeBanner: false,
       title: "Flutter Demo",
@@ -41,7 +41,7 @@ class RouteGenerator{
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(builder: (context) => LandingPage());
-      case "/descriptionPage":
+      case "/descriptionFilm":
         return MaterialPageRoute(builder: (context) => DescriptionFilm());
       case "/login_form":
         return MaterialPageRoute(builder: (context) => Connexion());

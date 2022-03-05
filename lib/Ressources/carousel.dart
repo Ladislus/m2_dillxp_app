@@ -21,6 +21,7 @@ class Carousel extends StatelessWidget{
               child: InkWell(
                 onTap: () {
                   print(nom_films[index]);
+                  Navigator.pushNamed(context, "/descriptionFilm");
                 },
                 child: SizedBox(
                   height: 400,
