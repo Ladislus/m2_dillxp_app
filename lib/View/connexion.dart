@@ -21,6 +21,7 @@ class _Connexion extends State<Connexion>{
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: CustomDrawer(),
+      resizeToAvoidBottomInset: true,
       appBar: appbar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

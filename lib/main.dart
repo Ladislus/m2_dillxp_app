@@ -7,6 +7,7 @@ import 'package:test_dill/View/landing_page.dart';
 import 'package:test_dill/View/registerPage.dart';
 
 import 'package:test_dill/View/profil_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,6 +28,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate
+        ],
+        supportedLocales: const [
+          //Locale('en'),
+          Locale('fr')
+        ],
       initialRoute: "/",
       onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
       debugShowCheckedModeBanner: false,
