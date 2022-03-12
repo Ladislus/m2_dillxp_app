@@ -23,121 +23,125 @@ class _Connexion extends State<Connexion>{
       drawer: CustomDrawer(),
       resizeToAvoidBottomInset: true,
       appBar: appbar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: ListView(
         children: [
-          Container(
-            //color: Colors.grey[200],
-            padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Connexion",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24
-                  ),
-                ),
-                Form(
-                  key : _formKey,
-                  child : Column(
-                    children: [
-                      Padding(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                //color: Colors.grey[200],
+                padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Connexion",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24
+                      ),
+                    ),
+                    Form(
+                      key : _formKey,
+                      child : Column(
+                        children: [
+                          Padding(
 
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                        child: TextFormField(
-                          validator: (String? value) {
-                            if(EmailValidator.validate(value!)){
-                              return null;
-                            }
-                            return "Email non valide";
-                          },
-                          onSaved: (String? value) {
-                            email = value.toString();
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: rouge_principal, width: 1.0),
-                                borderRadius: BorderRadius.circular(50.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                            child: TextFormField(
+                              validator: (String? value) {
+                                if(EmailValidator.validate(value!)){
+                                  return null;
+                                }
+                                return "Email non valide";
+                              },
+                              onSaved: (String? value) {
+                                email = value.toString();
+                              },
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: rouge_principal, width: 1.0),
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                                  hintText: 'email'.toUpperCase(),
+                                  hintStyle: TextStyle(
+                                      color: placeholder_color,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                  suffixIcon: const Icon(
+                                    Icons.account_circle_outlined,
+                                  )
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                borderRadius: BorderRadius.circular(50.0),
-                              ),
-                              contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-                              hintText: 'email'.toUpperCase(),
-                              hintStyle: TextStyle(
-                                  color: placeholder_color,
-                                  fontWeight: FontWeight.bold
-                              ),
-                              suffixIcon: const Icon(
-                                Icons.account_circle_outlined,
-                              )
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                        child: TextFormField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: rouge_principal, width: 1.0),
-                                borderRadius: BorderRadius.circular(50.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                borderRadius: BorderRadius.circular(50.0),
-                              ),
-                              contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-                              hintText: '**********'.toUpperCase(),
-                              hintStyle: TextStyle(
-                                  color: placeholder_color,
-                                  fontWeight: FontWeight.bold
-                              ),
-                              suffixIcon: const Icon(
-                                Icons.password,
-                              )
-                          ),
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(top: 35)),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            developer.log("Je suis connecté");
-                            Navigator.pushNamed(context, "/movies");
-                          }
-                        },
-                        child: Center(
-                          child: Text(
-                            'Connexion'.toUpperCase(),
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black
                             ),
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 5,
-                          primary: Colors.white,
-                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                            child: TextFormField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: rouge_principal, width: 1.0),
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  contentPadding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                                  hintText: '**********'.toUpperCase(),
+                                  hintStyle: TextStyle(
+                                      color: placeholder_color,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                  suffixIcon: const Icon(
+                                    Icons.password,
+                                  )
+                              ),
+                            ),
                           ),
-                          side: BorderSide(width: 2.5, color: rouge_principal),
-                        ),
+                          const Padding(padding: EdgeInsets.only(top: 35)),
+                          ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                developer.log("Je suis connecté");
+                                Navigator.pushNamed(context, "/movies");
+                              }
+                            },
+                            child: Center(
+                              child: Text(
+                                'Connexion'.toUpperCase(),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black
+                                ),
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              elevation: 5,
+                              primary: Colors.white,
+                              padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              side: BorderSide(width: 2.5, color: rouge_principal),
+                            ),
+                          ),
+                          const Padding(padding: EdgeInsets.only(top: 15)),
+                        ],
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 15)),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
-      ),
+      )
     );
   }
 
