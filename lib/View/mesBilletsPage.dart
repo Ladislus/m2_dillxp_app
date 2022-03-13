@@ -107,156 +107,53 @@ class _mesBilletsPageState extends State<mesBilletsPage> {
                   )
 
               ),
-              ListView(
-                shrinkWrap: true,
-                children : [
-                  Container(
-                    child: Column(
+              Container(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding : const EdgeInsets.fromLTRB(20, 10, 0, 10),
-                              child: Text(
-                                "Billets actifs",
-                                style: TextStyle(
-                                  color: rouge_appbar,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 32,
-                                ),
-                              ),
+                        Container(
+                          padding : const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                          child: Text(
+                            "Billets actifs",
+                            style: TextStyle(
+                              color: rouge_appbar,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
                             ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 200,
-                          child: ListView.separated(
-                              itemBuilder: (BuildContext context, int index){
-                                return Container(
-                                  width: 200,
-                                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                  child: Card(
-                                    color: Colors.white70,
-
-                                    child :Column(
-                                      children: [
-                                        SizedBox(
-                                                height: 160,
-                                                child: Column(
-                                                children: [
-                                                  Expanded(child: qrcode[index],
-                                                  ),
-                                                ],
-                                                ),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                             Flexible(
-                                               child: Container(
-                                                 padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                                 child: const Text(
-                                                  'Séance : [date][format : dd/mm/yyyy] à [heure]',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    //overflow: TextOverflow.fade,
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
-                                                ),
-                                               ),
-                                             ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Flexible(
-                                             child :Container(
-                                                padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                                child:  const Text(
-                                                  "Film : [nom Film] a a a a a a a a  a a  ",
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                  ),
-                                                  overflow: TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                              separatorBuilder: (BuildContext context, int index) => const Padding(
-                                  padding: EdgeInsets.only(right: 15)),
-                             scrollDirection: Axis.horizontal ,
-                              itemCount: qrcode.length),
-                        ),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child :Container(
-                            margin: const EdgeInsets.fromLTRB(20,10,0,10),
-                            decoration:  BoxDecoration(
-                              color: rouge_principal,
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                            ),
-                            height: 3,
-                            width: 65,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding : const EdgeInsets.fromLTRB(20, 10, 0, 10),
-                              child: Text(
-                                "Anciens billets",
-                                style: TextStyle(
-                                  color: rouge_appbar,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 32,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 200,
-                          child: ListView.separated(
-                            itemBuilder: (BuildContext context, int index){
+                    SizedBox(
+                      height: 200,
+                      child: ListView.separated(
+                          itemBuilder: (BuildContext context, int index){
                             return Container(
                               width: 200,
                               padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                               child: Card(
                                 color: Colors.white70,
+
                                 child :Column(
                                   children: [
                                     SizedBox(
-                                      height: 160,
-                                      child: Column(
-                                        children: [
-                                          Expanded(child: qrcode[index],
-                                          ),
-                                        ],
-                                      ),
+                                            height: 160,
+                                            child: Column(
+                                            children: [
+                                              Expanded(child: qrcode[index],
+                                              ),
+                                            ],
+                                            ),
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        Flexible(
-                                          child: Container(
-                                            padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                            child: const Text(
+                                         Flexible(
+                                           child: Container(
+                                             padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                             child: const Text(
                                               'Séance : [date][format : dd/mm/yyyy] à [heure]',
                                               style: TextStyle(
                                                 fontSize: 12,
@@ -264,15 +161,15 @@ class _mesBilletsPageState extends State<mesBilletsPage> {
                                               ),
                                               overflow: TextOverflow.ellipsis,
                                             ),
-                                          ),
-                                        ),
+                                           ),
+                                         ),
                                       ],
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Flexible(
-                                          child :Container(
+                                         child :Container(
                                             padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
                                             child:  const Text(
                                               "Film : [nom Film] a a a a a a a a  a a  ",
@@ -289,17 +186,118 @@ class _mesBilletsPageState extends State<mesBilletsPage> {
                                 ),
                               ),
                             );
-                            },
+                          },
                           separatorBuilder: (BuildContext context, int index) => const Padding(
-                            padding: EdgeInsets.only(right: 15)),
-                          scrollDirection: Axis.horizontal ,
-                          itemCount: qrcode.length
+                              padding: EdgeInsets.only(right: 15)),
+                         scrollDirection: Axis.horizontal ,
+                          itemCount: qrcode.length),
+                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child :Container(
+                        margin: const EdgeInsets.fromLTRB(20,10,0,10),
+                        decoration:  BoxDecoration(
+                          color: rouge_principal,
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        ),
+                        height: 3,
+                        width: 65,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding : const EdgeInsets.fromLTRB(20, 10, 0, 10),
+                          child: Text(
+                            "Anciens billets",
+                            style: TextStyle(
+                              color: rouge_appbar,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                            ),
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
+                    Container(
+                      padding: EdgeInsets.only(bottom: 15),
+                      child: SizedBox(
+                        height: 200,
+                        child: ListView.separated(
+                          itemBuilder: (BuildContext context, int index){
+                          return Container(
+                            width: 200,
+                            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            child: Card(
+                              color: Colors.white70,
+                              child :Column(
+                                children: [
+                                  SizedBox(
+                                    height: 160,
+                                    child: Column(
+                                      children: [
+                                        Expanded(child: qrcode[index],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Container(
+                                          padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                          child: const Text(
+                                            'Séance : [date][format : dd/mm/yyyy] à [heure]',
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              //overflow: TextOverflow.fade,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child :Container(
+                                          padding : const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                          child:  const Text(
+                                            "Film : [nom Film] a a a a a a a a  a a  ",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                          },
+                        separatorBuilder: (BuildContext context, int index) => const Padding(
+                          padding: EdgeInsets.only(right: 15)),
+                        scrollDirection: Axis.horizontal ,
+                        itemCount: qrcode.length
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
